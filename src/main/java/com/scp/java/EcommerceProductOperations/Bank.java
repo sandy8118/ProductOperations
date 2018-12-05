@@ -1,0 +1,47 @@
+package com.scp.java.EcommerceProductOperations;
+
+import java.util.*;
+
+public class Bank {
+	private String ifsc_code;
+	private long bank_funds;
+	private ArrayList<Account> bank_customers;
+	public Bank(String ifsc_code, long bank_funds, ArrayList<Account> bank_customers) {
+		super();
+		this.ifsc_code = ifsc_code;
+		this.bank_funds = bank_funds;
+		this.bank_customers = bank_customers;
+	}
+	@Override
+	public String toString() {
+		return "\nBank \n ifsc_code=" + ifsc_code + "\n, bank_funds=" + bank_funds + "\n, bank_customers=" + bank_customers
+				;
+	}
+	public String getIfsc_code() {
+		return ifsc_code;
+	}
+	public void setIfsc_code(String ifsc_code) {
+		this.ifsc_code = ifsc_code;
+	}
+	public long getBank_funds() {
+		return bank_funds;
+	}
+	public void setBank_funds(long bank_funds) {
+		this.bank_funds = bank_funds;
+	}
+	public ArrayList<Account> getBank_customers() {
+		return bank_customers;
+	}
+	public void setBank_customers(ArrayList<Account> bank_customers) {
+		this.bank_customers = bank_customers;
+	}
+	public void update_Bank_Funds(Bank b) {
+		ArrayList<Account> BankCustomers=b.getBank_customers();
+		 long amount=0;
+		    for(Account ac:BankCustomers) {
+		    	amount=amount+ac.getBalance();
+		    }
+		    b.setBank_funds(amount);
+	}	
+
+}
