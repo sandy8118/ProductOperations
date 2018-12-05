@@ -2,7 +2,14 @@ package com.scp.java.EcommerceProductOperations;
 
 import java.util.*;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Bank")
 public class Bank {
+	@Id
 	private String ifsc_code;
 	private long bank_funds;
 	private ArrayList<Account> bank_customers;

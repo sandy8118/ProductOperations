@@ -1,10 +1,21 @@
 package com.scp.java.EcommerceProductOperations;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Customer")
 public class Customer {
+	@Id
 	private String customer_id;
 	private String customer_name;
 	private Address address;
 	private String Mob_number;
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private Account account_details;
 	public Customer(String customer_id, String customer_name, Address address, String mob_number,
 			Account account_details) {

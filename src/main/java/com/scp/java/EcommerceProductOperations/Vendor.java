@@ -1,12 +1,22 @@
 package com.scp.java.EcommerceProductOperations;
 
 import java.util.Arrays;
-import java.util.*;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import java.util.*;
+@Entity
+@Table(name="Vendor")
 public class Vendor {
 	private String vendor_id;
 	private String vendor_name;
 	private ArrayList<Products> products_list;
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private Account account_details;
 	public Vendor(String vendor_id, String vendor_name,ArrayList<Products> products_list, Account account_details) {
 		super();
