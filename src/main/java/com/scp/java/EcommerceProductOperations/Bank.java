@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Bank")
+@Table(name="Bank_Info")
 public class Bank {
 	@Id
 	private String ifsc_code;
