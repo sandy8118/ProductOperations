@@ -31,7 +31,8 @@
         <property name="hbm2ddl.auto">create-drop</property>
       <!-- List of XML mapping files -->
       
-      <mapping class= ""/> 
+      <mapping class= " com.scp.java.EcommerceProductOperations.Customer"/>
+      <mapping class= "com.scp.java.EcommerceProductOperations.Vendor"/> 
         
 
       
