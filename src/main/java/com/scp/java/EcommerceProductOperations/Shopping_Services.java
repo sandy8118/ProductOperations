@@ -70,23 +70,22 @@ class Service_Implemetation implements Shopping_Services{
 		Transaction tr=session.beginTransaction();
 		Vendor dbVendor=session.get(Vendor.class,vendor_id);
 		List<Products> product_list=dbVendor.getProducts_list();
-		
+		Iterator product_list_itr=product_list.iterator();
 		Iterator p_id_itr=product_Id_List.iterator();
 		while(p_id_itr.hasNext()){
-			
-			
-			
-		}
-		
-		/*for(Products p:pl) {
-			for(Object id:p_id) {
-				String product_id=(String)id;
-				if(p.getProduct_id().equals(product_id)) {
+			while(product_list_itr.hasNext()){
+				Products p=(Products)product_list_itr.next();
+				if(p.getProduct_id().equals(p_id_itr.next().toString())){
 					int oldStock=p.getStock();
-					p.setStock(oldStock-1);
-					}
+					p.setStock(oldStock-1);				
+				}
 			}
-		}*/
+		}
+		session.save(dbVendor);
+		session.flush();
+		tr.commit();
+		System.out.println("Stock updated successful...");
+		
 
 	}
 }
