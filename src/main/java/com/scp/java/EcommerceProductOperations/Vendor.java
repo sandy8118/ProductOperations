@@ -21,6 +21,9 @@ public class Vendor {
 	private List<Products> products_list;
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private Account account_details;
+	public Vendor(){
+		
+	}
 	public Vendor(String vendor_id, String vendor_name,List<Products> products_list, Account account_details) {
 		super();
 		this.vendor_id = vendor_id;

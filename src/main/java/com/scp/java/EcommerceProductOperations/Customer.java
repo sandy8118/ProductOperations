@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Customer")
-public class Customer {
+public class Customer{
 	@Id
 	private String customer_id;
 	private String customer_name;
@@ -18,6 +18,10 @@ public class Customer {
 	private String Mob_number;
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private Account account_details;
+	public Customer(){
+		
+	}
+
 	public Customer(String customer_id, String customer_name, Address address, String mob_number,
 			Account account_details) {
 		super();
@@ -71,6 +75,11 @@ class Address{
 	private String city;
 	@Id
 	private int pin;
+	public Address(){
+		
+		
+	}
+	
 	public Address(String city, int pin) {
 		super();
 		this.city = city;
@@ -101,6 +110,10 @@ class Account{
 	@Id
 	private String account_Number;
 	private int balance;
+	public Account(){
+		
+		
+	}
 	public Account(String ho_name, String account_Number, int balance) {
 		super();
 		this.ho_name = ho_name;

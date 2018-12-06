@@ -14,9 +14,13 @@ public class Products implements Cloneable{
 	private String product_decsription;
 	private String categorty;
 	private int stock;
+	
 	public Products clone() throws CloneNotSupportedException{
 		
 		return (Products)super.clone();
+	}
+	public Products(){
+		
 	}
 	
 	public Products(String product_id, String name, int price, String product_decsription, String categorty,int stock) {
