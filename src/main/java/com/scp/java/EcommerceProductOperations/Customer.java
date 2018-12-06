@@ -10,6 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Customer")
 public class Customer {
+	@Id
 	private String customer_id;
 	private String customer_name;
 	private Address address;
