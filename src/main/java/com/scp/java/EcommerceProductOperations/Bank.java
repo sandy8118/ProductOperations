@@ -4,16 +4,18 @@ import java.util.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Bank_Info")
+@Table(name="Bank")
 public class Bank {
 	@Id
 	private String ifsc_code;
 	private long bank_funds;
-	private ArrayList<Account> bank_customers;
-	public Bank(String ifsc_code, long bank_funds, ArrayList<Account> bank_customers) {
+	@OneToMany
+	private List<Account> bank_customers;
+	public Bank(String ifsc_code, long bank_funds, List<Account> bank_customers) {
 		super();
 		this.ifsc_code = ifsc_code;
 		this.bank_funds = bank_funds;
@@ -36,14 +38,14 @@ public class Bank {
 	public void setBank_funds(long bank_funds) {
 		this.bank_funds = bank_funds;
 	}
-	public ArrayList<Account> getBank_customers() {
+	public List<Account> getBank_customers() {
 		return bank_customers;
 	}
-	public void setBank_customers(ArrayList<Account> bank_customers) {
+	public void setBank_customers(List<Account> bank_customers) {
 		this.bank_customers = bank_customers;
 	}
 	public void update_Bank_Funds(Bank b) {
-		ArrayList<Account> BankCustomers=b.getBank_customers();
+		List<Account> BankCustomers=b.getBank_customers();
 		 long amount=0;
 		    for(Account ac:BankCustomers) {
 		    	amount=amount+ac.getBalance();

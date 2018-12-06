@@ -17,7 +17,7 @@
       <!-- Assume test is the database name -->
       
       <property name = "hibernate.connection.url">
-         jdbc:mysql://localhost:3306/Sandy
+         jdbc:mysql://localhost:3306/sai
       </property>
       
       <property name = "hibernate.connection.username">
@@ -31,8 +31,12 @@
         <property name="hbm2ddl.auto">create-drop</property>
       <!-- List of XML mapping files -->
       
-      <mapping class= " com.scp.java.EcommerceProductOperations.Customer"/>
-      <mapping class= "com.scp.java.EcommerceProductOperations.Vendor"/> 
+      <mapping class= "com.scp.java.EcommerceProductOperations.Customer"/>
+      <mapping class= "com.scp.java.EcommerceProductOperations.Address"/>
+       <mapping class= "com.scp.java.EcommerceProductOperations.Account"/>
+      <mapping class= "com.scp.java.EcommerceProductOperations.Vendor"/>
+      <mapping class= "com.scp.java.EcommerceProductOperations.Products"/>
+      <mapping class= "com.scp.java.EcommerceProductOperations.Bank"/> 
         
 
       

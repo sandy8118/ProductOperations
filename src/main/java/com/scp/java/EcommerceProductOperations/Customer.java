@@ -8,12 +8,13 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Customer_Info")
+@Table(name="Customer")
 public class Customer {
 	@Id
 	private String customer_id;
 	private String customer_name;
-	private Address address;
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+ 	private Address address;
 	private String Mob_number;
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private Account account_details;
@@ -64,8 +65,11 @@ public class Customer {
 	
 
 }
+@Entity
+@Table(name="Address")
 class Address{
 	private String city;
+	@Id
 	private int pin;
 	public Address(String city, int pin) {
 		super();
@@ -90,8 +94,11 @@ class Address{
 	}
 	
 }
+@Entity
+@Table(name="Account")
 class Account{
 	private String ho_name;
+	@Id
 	private String account_Number;
 	private int balance;
 	public Account(String ho_name, String account_Number, int balance) {

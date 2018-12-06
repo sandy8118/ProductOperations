@@ -1,6 +1,13 @@
 package com.scp.java.EcommerceProductOperations;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Products")
 public class Products implements Cloneable{
+	@Id
 	private String product_id;
 	private String name;
 	private int price;
