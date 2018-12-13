@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.Session;
+
 @Entity
 @Table(name="Bank")
 public class Bank {
@@ -45,12 +47,17 @@ public class Bank {
 		this.bank_customers = bank_customers;
 	}
 	public void update_Bank_Funds(Bank b) {
-		List<Account> BankCustomers=b.getBank_customers();
+		/*List<Account> BankCustomers=b.getBank_customers();
 		 long amount=0;
 		    for(Account ac:BankCustomers) {
 		    	amount=amount+ac.getBalance();
 		    }
 		    b.setBank_funds(amount);
+		*/  
+		Session session=com.scp.java.HibernateUtil.HibernateUtilMethods.getSessionFactory().openSession();
+	       Bank bb=session.get(Bank.class,b.getIfsc_code());
+	       List<Account> BankCustomers=bb.getBank_customers();
+	       Iterator bankItr=BankCustomers.iterator();
 	}	
 
 }
