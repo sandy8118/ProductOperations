@@ -15,7 +15,8 @@
   </properties>
 
   <dependencies>
-    <!-- Add Spring MVC and REST support -->
+   <!-- Spring dependencies-->
+	  <!-- Add Spring MVC and REST support -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
